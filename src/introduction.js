@@ -10,12 +10,12 @@ export function sub(a, b)
 
 export function sum(values)
 {
-  return values.reduce((resultat, x) => resultat + x, 0);
+  return values.reduce((resultat, element) => resultat + element, 0);
 }
 
 export function addToAll(values, toAdd)
 {
-  return values.map((x) => x + toAdd);
+  return values.map((element) => element + toAdd);
 }
 
 export function average(values)
@@ -41,4 +41,9 @@ export function isAdult(user)
 export function isChild(user)
 {
   return !isAdult(user);
+}
+
+export function extractAge(users)
+{
+  return users.map((user) => user.age);
 }
