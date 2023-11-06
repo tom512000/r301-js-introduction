@@ -70,3 +70,8 @@ export function hasChild(users)
 {
   return !isAllAdult(users);
 }
+
+export function addIsAdultProperty(users)
+{
+  return users.map((user) => ({...user, isAdult: isAdult(user)}));
+}
