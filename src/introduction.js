@@ -30,12 +30,7 @@ export function average(values)
 
 export function isAdult(user)
 {
-  let resultat = false;
-  if (user.age >= 18) {
-    resultat = true;
-  }
-
-  return resultat;
+  return user.age >= 18;
 }
 
 export function isChild(user)
@@ -46,4 +41,17 @@ export function isChild(user)
 export function extractAge(users)
 {
   return users.map((user) => user.age);
+}
+
+export function adultFilter(users, type)
+{
+  if (type == "adult") {
+    return users.filter(isAdult);
+
+  } else if (type == "child") {
+    return users.filter(isChild);
+
+  } else {
+    return users;
+  }
 }
