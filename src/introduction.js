@@ -10,15 +10,20 @@ export function sub(a, b)
 
 export function sum(values)
 {
-  let resultat = 0;
-  for (var i = 0; i < values.length; i++) {
-    resultat += values[i];
-  }
-
-  return resultat;
+  return values.reduce((resultat, x) => resultat + x, 0);
 }
 
 export function addToAll(values, toAdd)
 {
   return values.map((x) => x + toAdd);
+}
+
+export function average(values)
+{
+  let resultat = null;
+  if (values.length != 0) {
+    resultat = sum(values)/values.length;
+  }
+  
+  return resultat;
 }
