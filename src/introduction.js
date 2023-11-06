@@ -27,3 +27,18 @@ export function average(values)
   
   return resultat;
 }
+
+export function isAdult(user)
+{
+  let resultat = false;
+  if (user.age >= 18) {
+    resultat = true;
+  }
+
+  return resultat;
+}
+
+export function isChild(user)
+{
+  return !isAdult(user);
+}
