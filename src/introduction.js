@@ -17,3 +17,8 @@ export function sum(values)
 
   return resultat;
 }
+
+export function addToAll(values, toAdd)
+{
+  return values.map((x) => x + toAdd);
+}
