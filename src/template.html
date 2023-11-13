@@ -5,9 +5,27 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml" />
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<link rel="stylesheet" href="css/index.css" />
 <title>Template page</title>
 
 <body class="app">
+<fieldset class="users-data">
+    <legend class="users-data__legend">Users<button type="button" class="button user-data__add"><span
+            class="material-symbols-outlined">add</span></button></legend>
+    <ul class="users"></ul>
+</fieldset>
+<article class="info">
+    <form class="info__age-average-type">
+        <label><input type="radio" name="type" value="" checked />all</label>
+        <label><input type="radio" name="type" value="adult" />adult</label>
+        <label><input type="radio" name="type" value="child" />child</label>
+    </form>
+    <div class="info__user">
+        Age average: <span class="info__age-average"></span>
+    </div>
+</article>
 </body>
 
 </html>
