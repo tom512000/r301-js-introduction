@@ -33,3 +33,11 @@ export function createHtmlUser(age) {
 export function setAddUserEltCallback(addUserElt, usersElt) {
     addUserElt.addEventListener('click', () => { usersElt.appendChild(createHtmlUser(Math.floor(Math.random() * (32 - 12) + 12))) });
 }
+
+export function extractUser(userElt) {
+    let user = {};
+    user.name = userElt.querySelector("input.input.user__name").value;
+    user.age = parseInt(userElt.querySelector("input.input.user__age").value);
+
+    return user;
+}
