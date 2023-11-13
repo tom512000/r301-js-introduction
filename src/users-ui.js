@@ -41,3 +41,12 @@ export function extractUser(userElt) {
 
     return user;
 }
+
+export function extractUsers(usersElt) {
+    let users = {};
+
+    const usersTab = usersElt.querySelectorAll("li.user");
+    for (let i = 0; i < usersElt.length(); i++) {
+        
+    }
+}
