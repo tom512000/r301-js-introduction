@@ -4,3 +4,7 @@ export function createHtmlUser(age) {
     liElt.innerHTML = age;
     return liElt;
 }
+
+export function setAddUserEltCallback(addUserElt, usersElt) {
+    addUserElt.addEventListener('click', () => { usersElt.appendChild(createHtmlUser(usersElt)) });
+}

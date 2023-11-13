@@ -1,3 +1,4 @@
-import { add } from "./introduction";
+import { setAddUserEltCallback } from "./users-ui";
 
-console.log("1 + 2 = ", add(1, 2));
+setAddUserEltCallback(document.querySelector("button.user-data__add"),
+                      document.querySelector("ul.users"));
