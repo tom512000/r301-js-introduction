@@ -38,7 +38,8 @@ export function setAddUserEltCallback(addUserElt, usersElt, infoElt) {
         usersElt.appendChild(newUser);
 
         setUserEltCallbacks(newUser, usersElt, infoElt);
-
+        updateUserClassName(newUser);
+        
         if (infoElt)
             updateAgeAverage(usersElt, infoElt);
     });
@@ -89,11 +90,24 @@ export function setUserEltCallbacks(userElt, usersElt, infoElt) {
   
     userElt.addEventListener("change", (event) => {
         updateAgeAverage(usersElt, infoElt);
+        updateUserClassName(userElt);
     });
+
+    updateUserClassName(userElt);
 }
 
 export function setAgeTypeEltEvents(usersElt, infoElt) {
     infoElt.addEventListener("change", (event) => {
         updateAgeAverage(usersElt, infoElt);
     });
+}
+
+export function updateUserClassName(userElt) {
+    const ageInput = userElt.querySelector('.user__age');
+    const isChild = parseInt(ageInput.value, 10) < 18;
+
+    if (isChild)
+        userElt.classList.add('user--child');
+    else
+        userElt.classList.remove('user--child');
 }
