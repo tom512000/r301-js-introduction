@@ -34,8 +34,11 @@ export function createHtmlUser(age) {
 
 export function setAddUserEltCallback(addUserElt, usersElt, infoElt) {
     addUserElt.addEventListener('click', () => {
-        usersElt.appendChild(createHtmlUser(Math.floor(Math.random() * (32 - 12) + 12)))
-    
+        const newUser = createHtmlUser(Math.floor(Math.random() * (32 - 12) + 12));
+        usersElt.appendChild(newUser);
+
+        setUserEltCallbacks(newUser, usersElt, infoElt);
+
         if (infoElt)
             updateAgeAverage(usersElt, infoElt);
     });
@@ -76,4 +79,15 @@ export function updateAgeAverage(usersElt, infoElt) {
       infoElt.querySelector('.info__age-average').innerText = Number.parseFloat(moyenne).toFixed(2);
     else
       infoElt.querySelector('.info__age-average').innerText = '';
+}
+
+export function setUserEltCallbacks(userElt, usersElt, infoElt) {
+    userElt.querySelector('.user__delete').addEventListener('click', () => {
+        userElt.remove();
+        updateAgeAverage(usersElt, infoElt);
+    });
+  
+    userElt.addEventListener("change", (event) => {
+        updateAgeAverage(usersElt, infoElt);
+    });
 }
