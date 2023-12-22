@@ -43,10 +43,12 @@ export function extractUser(userElt) {
 }
 
 export function extractUsers(usersElt) {
-    let users = {};
-
-    const usersTab = usersElt.querySelectorAll("li.user");
-    for (let i = 0; i < usersElt.length(); i++) {
-        
+    const liste = [];
+    const users = Array.from(usersElt.querySelectorAll('li'));
+    
+    for (let i = 0; i < users.length; i++) {
+        liste.push(extractUser(users[i]))
     }
+
+    return liste;
 }
