@@ -52,3 +52,12 @@ export function extractUsers(usersElt) {
 
     return liste;
 }
+
+export function extractUserType(infoElt) {
+    const liste = Array.from(infoElt.querySelector('.info__age-average-type').querySelectorAll('label'));
+  
+    for (let i = 0; i < liste.length; i++) {
+      if (liste[i].querySelector('input').checked)
+        return liste[i].querySelector('input').value;
+    }
+}
