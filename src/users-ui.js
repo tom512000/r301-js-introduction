@@ -1,3 +1,5 @@
+import { ageAverage } from "./introduction";
+
 export function createHtmlUser(age) {
     const liElt = document.createElement("li");
     liElt.className = "user";
@@ -30,8 +32,13 @@ export function createHtmlUser(age) {
     return liElt;
 }
 
-export function setAddUserEltCallback(addUserElt, usersElt) {
-    addUserElt.addEventListener('click', () => { usersElt.appendChild(createHtmlUser(Math.floor(Math.random() * (32 - 12) + 12))) });
+export function setAddUserEltCallback(addUserElt, usersElt, infoElt) {
+    addUserElt.addEventListener('click', () => {
+        usersElt.appendChild(createHtmlUser(Math.floor(Math.random() * (32 - 12) + 12)))
+    
+        if (infoElt)
+            updateAgeAverage(usersElt, infoElt);
+    });
 }
 
 export function extractUser(userElt) {
@@ -60,4 +67,13 @@ export function extractUserType(infoElt) {
       if (liste[i].querySelector('input').checked)
         return liste[i].querySelector('input').value;
     }
+}
+
+export function updateAgeAverage(usersElt, infoElt) {
+    const moyenne = ageAverage(extractUsers(usersElt), extractUserType(infoElt));
+  
+    if (moyenne)
+      infoElt.querySelector('.info__age-average').innerText = Number.parseFloat(moyenne).toFixed(2);
+    else
+      infoElt.querySelector('.info__age-average').innerText = '';
 }
