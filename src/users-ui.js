@@ -91,3 +91,9 @@ export function setUserEltCallbacks(userElt, usersElt, infoElt) {
         updateAgeAverage(usersElt, infoElt);
     });
 }
+
+export function setAgeTypeEltEvents(usersElt, infoElt) {
+    infoElt.addEventListener("change", (event) => {
+        updateAgeAverage(usersElt, infoElt);
+    });
+}
